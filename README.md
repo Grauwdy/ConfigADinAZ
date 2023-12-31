@@ -3,7 +3,7 @@
 </p>
 
 <h1>Active Directory Configurations in Azure</h1>
-This lab is a follow up to the lab where I installed Active Directory and created a domain controller. I will now be configuring Active Directory and allowing a client to join the domain as well as creating user accounts. <br />
+This lab serves as a sequel to the previous one where I set up Active Directory and established a domain controller. Now, the focus shifts to configuring Active Directory, facilitating the integration of a client into the domain, and crafting user accounts. <br />
 
 <h2>Environments and Technologies Used</h2>
 
@@ -23,9 +23,16 @@ This lab is a follow up to the lab where I installed Active Directory and create
 <img src="https://i.imgur.com/PGR0bEi.png" height="80%" width="80%" alt="Configuration Steps"/>
 <img src="https://i.imgur.com/WiCs7bJ.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
-<p>
-Now that Active Directory is installed on the domain controller VM, it is time to create new Organizational Units and Users. With the Active Directory Users and Computers console open, right click on the domain you created (in my case, ernestotest.com) and make a new Organizational Unit (OU). I have created two Organizational Units, _EMPLOYEES and _ADMINS. The reason behind this naming scheme is because a Powershell script will be utilized later. Within the _ADMINS OU, I created a new User called Jane Doe. Jane's account will be given administrative privileges through the use of a Security Group. To grant admin privileges to a User, right click on the user and open their Properties. Click Member Of then Add to apply the appropraite security group. In this case, I added Jane to the Domain Admins security group. From now on, I will be using Jane's account to make any further changes. I will be logging off as labuser and log in as jane_admin.
-</p>
+<p>With Active Directory now on the domain controller VM, let's create new Organizational Units (OUs) and Users:</p>
+
+<ol>
+  <li>Open the Active Directory Users and Computers console.</li>
+  <li>Right-click on the domain (like alaingarciadomain.com) and create a new Organizational Unit (OU). I made two: _EMPLOYEES and _ADMINS, with a naming scheme for a future PowerShell script.</li>
+  <li>Inside the _ADMINS OU, create a new User, say, alain garcia. This user gets admin privileges via a Security Group.</li>
+  <li>To grant admin powers, right-click on the user, go to Properties, click Member Of, then Add to join the relevant security group. In my case, alain joins the Domain Admins group.</li>
+</ol>
+
+<p>Moving forward, changes will happen through Alain's account. Logging off as labuser and logging in as alain_admin from now on. Let the admin tasks begin!</p>
 <br />
 
 <p>
@@ -41,17 +48,32 @@ Before the client can join the domain, it is important to configure the DNS sett
 <img src="https://i.imgur.com/z1kq1Gv.png" height="80%" width="80%" alt="Configuration Steps"/>
 <img src="https://i.imgur.com/DkPUJNR.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
-<p>
-It is now time to make the client VM join the domain. In the System menu of the client VM, click on Rename this PC (advanced) and Change. Enter the domain and necessary credentials in order to let the client join the domain. I am logging in as Jane Doe for the purposes of the lab. It is important to note that the login credentials have to be input within the context of the domain path. The client should now be part of the domain. On the domain controller, the client should now appear in Computers in the Active Directory Users and Computers panel.
-</p>
+<p>Now, let's get the client VM on board and join the domain. Here's the process:</p>
+
+<ol>
+  <li>In the System menu of the client VM, click on "Rename this PC (advanced)" and then "Change."</li>
+  <li>Enter the domain and necessary credentials to allow the client to join the domain. For this lab, I'm logging in as Jane Doe.</li>
+  <li>Ensure that the login credentials are input within the context of the domain path.</li>
+  <li>The client should now be successfully part of the domain.</li>
+</ol>
+
+<p>Check on the domain controller, and the client should now appear in the Computers section within the Active Directory Users and Computers panel. The integration is complete!</p>
+
 <br />
 
 <p>
 <img src="https://i.imgur.com/nkPK6ny.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
-<p>
-Before users in the domain can use the client computer, Remote Desktop has to be enabled for non-administrative users. While logged in as the administrator (in my case, Jane), open System Properties. Click on Remote Desktop and Select users that can remotely access this PC. Allow Domain Users access to Remote Desktop. Non-administrative users can now log in to Client-1. Normally a Group Policy can do the same and allows changes to many systems at once. For the purposes of this lab, a Group Policy won't be used to make this change.
-</p>
+<p>Before users in the domain can utilize the client computer, Remote Desktop needs to be enabled for non-administrative users. Follow these steps:</p>
+
+<ol>
+  <li>While logged in as the administrator (in my case, Jane), open System Properties.</li>
+  <li>Click on Remote Desktop and select users who can remotely access this PC.</li>
+  <li>Allow Domain Users access to Remote Desktop.</li>
+</ol>
+
+<p>Now, non-administrative users can log in to Client-1 using Remote Desktop. Typically, a Group Policy can achieve the same result and facilitate changes across multiple systems simultaneously. However, for the purposes of this lab, we won't be using Group Policy for this specific adjustment.</p>
+
 <br />
 
 <p>
@@ -73,4 +95,12 @@ After creating the users, Client-1 can now be signed in as one of the new users 
 
 <h2>Lessons Learned</h2>
 
-Doing this lab has made me learn how to set up Active Directory and join clients to the domain. I also created users and assigned the necessary permissions. Active Directory is not difficult to learn despite all the menu navigation that takes place. This lab is a segway for me to learn about DNS settings in-depth and file permissions in action. I will go into detail about these topics in other labs.
+Completing this lab taught me the ropes of setting up Active Directory and smoothly incorporating clients into the domain. Creating users and handling permissions underscored the practical side of Active Directory, showing that it's not as complex as it may appear during menu navigation.
+
+This lab serves as a springboard for me to explore DNS settings in more depth and witness file permissions in action in upcoming labs. I'm eager to tackle these topics hands-on and deepen my understanding of the broader system administration landscape.
+
+
+
+
+
+
