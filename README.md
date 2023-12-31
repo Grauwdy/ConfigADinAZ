@@ -64,7 +64,7 @@ Creating users can be done manually or through the use of a script. For this lab
 <br />
 
 <p>
-<img src="https://i.imgur.com/Xn5tQU2.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/4ELhiF6.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
 After creating the users, Client-1 can now be signed in as one of the new users that were created from the PowerShell script. Pick a name and simply sign in to the client with the context of the domain. In my case, it is alaingarciadomain.com\gadusu.woker.
