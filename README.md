@@ -47,7 +47,7 @@ It is now time to make the client VM join the domain. In the System menu of the 
 <br />
 
 <p>
-<img src="https://i.imgur.com/jmR2LXa.png" height="80%" width="80%" alt="Configuration Steps"/>
+<img src="https://i.imgur.com/nkPK6ny.png" height="80%" width="80%" alt="Configuration Steps"/>
 </p>
 <p>
 Before users in the domain can use the client computer, Remote Desktop has to be enabled for non-administrative users. While logged in as the administrator (in my case, Jane), open System Properties. Click on Remote Desktop and Select users that can remotely access this PC. Allow Domain Users access to Remote Desktop. Non-administrative users can now log in to Client-1. Normally a Group Policy can do the same and allows changes to many systems at once. For the purposes of this lab, a Group Policy won't be used to make this change.
